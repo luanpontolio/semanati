@@ -1,0 +1,26 @@
+{
+  "name": "semanati",
+  "version": "0.0.0",
+  "authors": [
+    "luan_pontolio <luan.pontolio@gmail.com>"
+  ],
+  "description": "Minicurso Web Components Univem",
+  "main": "index.html",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "polymer",
+    "web",
+    "components",
+    "univem"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
