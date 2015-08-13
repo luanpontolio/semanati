@@ -1,0 +1,79 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+
+<dom-module id="post-card">
+	<style>
+		:host{
+			display: block;
+      position: relative;
+      background-color: white;
+      padding: 20px;
+      font-size: 1.2rem;
+      font-weight: 300;
+      -webkit-box-shadow: rgba(0, 0, 0, 0.0980392) 0px 3px 6px, rgba(0, 0, 0, 0.0980392) 0px 0px 5px;
+      -moz-box-shadow: rgba(0, 0, 0, 0.0980392) 0px 3px 6px, rgba(0, 0, 0, 0.0980392) 0px 0px 5px;
+      box-shadow: rgba(0, 0, 0, 0.0980392) 0px 3px 6px, rgba(0, 0, 0, 0.0980392) 0px 0px 5px;
+		}
+
+    polyfill-next-selector { content: '.card-header img'; }
+    .card-header ::content img {
+      width: 100%;
+      border-radius: 10%;
+      margin: 10px;
+    }
+    polyfill-next-selector { content: '.card-text h2'; }
+    .card-text ::content h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 300;
+    }
+    polyfill-next-selector { content: '.card-text span'; }
+    .card-text ::content span {
+      margin: 10px;
+      float: right;
+      font-size: 1.2rem;
+      font-weight: 100;
+      color: gray;
+    }
+    paper-icon-button {
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      color: #636363;
+    }
+    :host([favorite]) paper-icon-button {
+      color: #da4336;
+    }
+	</style>
+	<template>
+		<paper-icon-button id="favicon" icon="favorite" on-click="[[favoriteTapped]]">
+    </paper-icon-button>
+
+    <div class="card-header">
+      <content select="img"></content>
+    </div>
+
+    <div class="card-text">
+      <content select="h2"></content>
+      <content select="span"></content>
+    </div>
+
+    <content></content>
+	</template>
+	<script>
+    Polymer({
+      is: 'post-card',
+      publish: {
+        favorite: {
+          value: false,
+          reflect: true
+        }
+      },
+
+      favoriteTapped: function(event, detail, sender) {
+        this.favorite = !this.favorite;
+        this.fire('favorite-tap');
+      }
+    });
+  </script>
+</dom-module>

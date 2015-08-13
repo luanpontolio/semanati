@@ -22,5 +22,14 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#1.0.0",
+    "paper-header-panel": "PolymerElements/paper-header-panel#1.0.0",
+    "paper-icon-button": "PolymerElements/paper-icon-button#1.0.0",
+    "paper-toolbar": "PolymerElements/paper-toolbar#1.0.0",
+    "paper-tabs": "PolymerElements/paper-tabs#1.0.0",
+    "iron-ajax": "PolymerElements/iron-ajax#1.0.0",
+    "iron-list": "PolymerElements/iron-list#1.0.0"
+  }
 }

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Semana TI</title>
+	<meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <script type="text/javascript" src="../bower_components/webcomponentsjs/webcomponents.js"></script>
+  <link rel="import" href="post-list.html">
+  <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
+  <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
+  <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+  <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+  <style type="text/css">
+  	body{
+  		font-family: 'Roboto', sans-serif;
+  		margin: 0;
+  		top: 0;
+  		padding: 0;
+  		background-color: #E5E5E5;
+  	}
+    paper-header-panel {
+      height: 100%;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    paper-toolbar {
+      background: #7986cb !important;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+    }
+  	#tabs{
+  		width: 100%;
+      margin: 0;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      text-transform: uppercase;
+  	}
+  	#tabs.iron-selected {
+      background: #eee;
+    }
+    .container {
+      width: 80%;
+      margin: 50px auto;
+    }
+    @media (min-width: 481px) {
+      #tabs {
+        width: 200px;
+      }
+      .container {
+        width: 400px;
+      }
+    }
+  </style>
+</head>
+<body class="fullbleed" unresolved>
+	<paper-header-panel class="flex">
+		<paper-toolbar class="medium-tall">
+	    <paper-icon-button icon="menu"></paper-icon-button>
+	    <span title>App Store</span>
+	    <paper-icon-button icon="refresh"></paper-icon-button>
+	    <paper-icon-button icon="add">+</paper-icon-button>
+
+      <paper-tabs id="tabs" selected="all" class="bottom self-end" >
+        <paper-tab name="all">
+          <iron-icon icon="store"><iron-icon>
+        </paper-tab>
+        <paper-tab name="favorites">
+          <iron-icon icon="add-shopping-cart"><iron-icon>
+        </paper-tab>
+      </paper-tabs>
+	  </paper-toolbar>
+
+	  <div class="container" layout vertical center>
+      <post-list show="all"></post-list>
+    </div>
+	</paper-header-panel>
+	<script>
+	  document.addEventListener('WebComponentsReady', function() {
+      var tabs = document.querySelector('paper-tabs');
+      var list = document.querySelector('post-list');
+      alert(tabs.selected);
+      alert(list.show);
+
+      tabs.addEventListener('click', function() {
+        list.show = tabs.selected;
+      });
+    });
+	</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+[
+
+  {
+    "uid":      0,
+    "text":     "12-inch (diagonal) LED-backlit Retina display...",
+    "price":    "from $ 1299",
+    "username": "MacBook Retina",
+    "avatar":   "../images/mackbook-retina.svg",
+    "favorite": false
+  },
+
+  {
+    "uid":      1,
+    "text":     "27-inch (diagonal) LED-backlit display...",
+    "price":    "from $ 1799",
+    "username": "iMac 27-inch",
+    "avatar":   "../images/macbookpro.svg",
+    "favorite": false
+  },
+
+  {
+    "uid":      3,
+    "text":     "3.7GHz quad-core, 3.5GHz 6-core, 3.0GHz 8-core, or 2.7GHz 12-core...",
+    "price":    "from $ 2999",
+    "username": "Mac Pro",
+    "avatar":  "../images/macbookpro.svg",
+    "favorite": false
+  },
+
+  {
+    "uid":      3,
+    "text":     "Up to 3.0GHz dual-core Intel Core i7 processor Turbo Boost up to 3.5GHz",
+    "price":    "from $ 499",
+    "username": "Mac mini",
+    "avatar":  "../images/mackbook-retina.svg",
+    "favorite": false
+  },
+
+  {
+    "uid":      4,
+    "text":     "13.3-inch (diagonal) LED-backlit display 2.5GHz dual-core Intel Core i5 or 2.9GHz...",
+    "price":    "from $ 1099",
+    "username": "MacBook Pro",
+    "avatar":  "../images/macbookpro.svg",
+    "favorite": false
+  },
+
+  {
+    "uid":      5,
+    "text":     "64GB 5.5-inch (diagonal) LED-backlit widescreen Multi-Touch display with IPS technology",
+    "price":    "from $ 399",
+    "username": "Iphone 6 plus",
+    "avatar":  "../images/iphone.svg",
+    "favorite": false
+  },
+
+  {
+    "uid":      6,
+    "text":     "13.3-inch (diagonal) LED-backlit display...",
+    "price":    "from $ 999",
+    "username": "MacBook Air",
+    "avatar":  "../images/macbookpro.svg",
+    "favorite": false
+  },
+
+  {
+    "uid":      7,
+    "text":     "4-inch (diagonal) LED-backlit widescreen Multi-Touch display with IPS technology",
+    "price":    "from $ 200",
+    "username": "Iphone 5C",
+    "avatar":  "../images/iphone.svg",
+    "favorite": false
+  },
+
+  {
+    "uid":      8,
+    "text":     "4-inch (diagonal) widescreen display with Multi-Touch IPS technology Retina",
+    "price":    "from $ 1299",
+    "username": "Ipod touch",
+    "avatar":  "../images/macbookpro.svg",
+    "favorite": false
+  },
+
+  {
+    "uid":      9,
+    "text":     "4-inch (diagonal) widescreen display with Multi-Touch IPS technology Retina",
+    "price":    "from $ 500",
+    "username": "Apple Watch",
+    "avatar":  "../images/mackbook-retina.svg",
+    "favorite": false
+  }
+
+]

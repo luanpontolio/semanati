@@ -1,0 +1,31 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module is="post-service" attributes="posts">
+	<style>
+		:host{
+			display: none;
+		}
+	</style>
+	<template>
+		<iron-ajax url="../api/service.json" last-response="{{postsLoaded}}" auto></iron-ajax>
+	</template>
+	<script>
+		Polymer({
+			is: 'post-service',
+			created: function() {
+        this.posts = [];
+      },
+
+      postsLoaded: function() {
+        // Make a copy of the loaded data
+        this.posts = this.$.ajax.response;
+      },
+
+      setFavorite: function(uid, isFavorite) {
+        // no service backend, just log the change
+        console.log('Favorite changed: ' + uid + ", now: " + isFavorite);
+      }
+		});
+	</script>
+</dom-module>
