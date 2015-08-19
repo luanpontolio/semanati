@@ -46,7 +46,7 @@
     }
 	</style>
 	<template>
-		<paper-icon-button id="favicon" icon="favorite" on-click="[[favoriteTapped]]">
+		<paper-icon-button id="favicon" icon="favorite" on-tap="favoriteTapped">
     </paper-icon-button>
 
     <div class="card-header">
@@ -63,10 +63,12 @@
 	<script>
     Polymer({
       is: 'post-card',
-      publish: {
+      properties: {
         favorite: {
+          type: Boolean,
           value: false,
-          reflect: true
+          reflectToAttribute: true,
+          notify: true
         }
       },
 

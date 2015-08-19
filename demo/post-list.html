@@ -1,9 +1,8 @@
-<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../bower_components/iron-list/iron-list.html">
-<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="post-card.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 
-<dom-module id="post-list" attributes="show">
+<dom-module id="post-list">
 	<style>
 	  :host {
       display: block;
@@ -21,24 +20,18 @@
 
 		<iron-ajax url="../api/service.json" last-response="{{data}}" auto></iron-ajax>
 
-    <iron-list id="list" items="[[data]]" as="item">
+    <template is="dom-repeat" items="{{data}}">
+      <div class="item">
+        <post-card favorite="{{item.favorite}}" on-click="handleFavorite"
+          hidden$="{{show = 'favorites' && !item.favorite}}">
+          <img src="{{item.avatar}}" width="200" height="200">
+          <h2>{{item.username}}</h2>
+          <span>{{item.price}}</span>
+          <p>{{item.text}}</p>
+        </post-card>
+      </div>
+    </template>
 
-      <template >
-        <div>
-          <div class="item">
-            <post-card favorite="[[item.favorite]]" on-click="[[handleFavorite]]"
-              hidden?="[[show == 'favorites' && !item.favorite]]">
-              <img src="[[item.avatar]]" width="200" height="200">
-              <h2>[[item.username]]</h2>
-              <span>[[item.price]]</span>
-              <p>[[item.text]]</p>
-            </post-card>
-          </div>
-        </div>
-
-      </template>
-
-    </iron-list>
 
 	</template>
 
@@ -46,14 +39,9 @@
     Polymer({
       is: 'post-list',
 
-      handleFavorite: function(event, detail, sender) {
-        var post = sender.templateInstance.model.item;
-        this.$.service.setFavorite(post.uid, post.favorite);
-      },
-
-      setFavorite: function(uid, isFavorite) {
-        // no service backend, just log the change
-        console.log('Favorite changed: ' + uid + ", now: " + isFavorite);
+      handleFavorite: function(e) {
+        var model = e.model;
+        console.log('Favorite changed: ' + model.item.uid + ", now: " + model.item.favorite);
       }
     });
   </script>
