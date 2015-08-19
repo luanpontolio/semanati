@@ -65,26 +65,26 @@
       <paper-icon-button icon="add">+</paper-icon-button>
 
       <paper-tabs id="tabs" selected="0" class="bottom self-end" >
-        <paper-tab id="all">
+        <paper-tab>
           <iron-icon icon="store"><iron-icon>
         </paper-tab>
-        <paper-tab id="favorites">
+        <paper-tab>
           <iron-icon icon="add-shopping-cart"><iron-icon>
         </paper-tab>
       </paper-tabs>
     </paper-toolbar>
 
     <div class="container" layout vertical center>
-      <post-list show="all"></post-list>
+      <post-list show="0"></post-list>
     </div>
-  </paper-header-panel>
-  <script>
-    var tabs = document.querySelector('paper-tabs');
-    var list = document.querySelector('post-list');
+    <script>
+      var tabs = document.querySelector('paper-tabs');
+      var list = document.querySelector('post-list');
 
-    tabs.addEventListener('core-select', function() {
-      list.show = tabs.selected;
-    });
-  </script>
+      tabs.addEventListener('click', function() {
+        list.setAttribute('show', tabs.selected);
+      });
+    </script>
+  </paper-header-panel>
 </body>
 </html>

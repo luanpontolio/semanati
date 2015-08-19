@@ -8,12 +8,8 @@
       display: block;
       width: 100%;
     }
-    #list {
-      @apply(--layout-flex);
-    }
     .item {
       padding: 16px;
-      @apply(--layout-horizontal);
     }
 	</style>
   <template>
@@ -22,8 +18,8 @@
 
     <template is="dom-repeat" items="{{data}}">
       <div class="item">
-        <post-card favorite="{{item.favorite}}" on-click="handleFavorite"
-          hidden$="{{show = 'favorites' && !item.favorite}}">
+        <post-card favorite="{{item.favorite}}" on-favorite-tap="handleFavorite"
+          hidden$="[[computeHidden(show, item.favorite)]]">
           <img src="{{item.avatar}}" width="200" height="200">
           <h2>{{item.username}}</h2>
           <span>{{item.price}}</span>
@@ -38,10 +34,21 @@
 	<script>
     Polymer({
       is: 'post-list',
+      properties: {
+        show: {
+          type: Number,
+          value: 0,
+          notify: true
+        }
+      },
 
-      handleFavorite: function(e) {
-        var model = e.model;
+      handleFavorite: function(event) {
+        var model = event.model;
         console.log('Favorite changed: ' + model.item.uid + ", now: " + model.item.favorite);
+      },
+
+      computeHidden: function(show, favorite){
+        return(show == 1 && !favorite)
       }
     });
   </script>
