@@ -3,23 +3,24 @@
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 
 <dom-module id="post-list">
-	<style>
-	  :host {
+  <style>
+    :host {
       display: block;
       width: 100%;
     }
     .item {
       padding: 16px;
+      @apply(--layout-flex);
     }
-	</style>
+  </style>
   <template>
 
-		<iron-ajax url="../api/service.json" last-response="{{data}}" auto></iron-ajax>
+    <iron-ajax url="../api/service.json" last-response="{{data}}" auto></iron-ajax>
 
     <template is="dom-repeat" items="{{data}}">
       <div class="item">
         <post-card favorite="{{item.favorite}}" on-favorite-tap="handleFavorite"
-          hidden$="[[computeHidden(show, item.favorite)]]">
+          hidden$="{{computeHidden(show, item.favorite)}}">
           <img src="{{item.avatar}}" width="200" height="200">
           <h2>{{item.username}}</h2>
           <span>{{item.price}}</span>
@@ -29,9 +30,9 @@
     </template>
 
 
-	</template>
+  </template>
 
-	<script>
+  <script>
     Polymer({
       is: 'post-list',
       properties: {
