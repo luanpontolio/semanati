@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>Initial Web compponent</title>
+	<script type="text/javascript" src="bower_components/webcomponentsjs/webcomponents.js"></script>
+</head>
+<body>
+
+
+	<script>
+		var MYelement = document.registerElement('my-element', {
+			prototype: Object.create(HTMLInputElement.prototype),
+      extends: 'input' // Define que o elemento button pode herdar as características do seu elemento.
+		});
+
+		var dom = new MYelement();
+		document.body.appendChild(dom);
+
+		dom.addEventListener('click', function(e) {
+			alert("Olá");
+		});
+	</script>
+</body>
+</html>

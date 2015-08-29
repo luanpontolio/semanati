@@ -1,16 +1,17 @@
-<link rel="import" href="post-card.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="post-card.html">
 
 <dom-module id="post-list">
   <style>
     :host {
       display: block;
       width: 100%;
+      @apply(--layout-flex);
+      @apply(--layout-vertical);
     }
     .item {
-      padding: 16px;
-      @apply(--layout-flex);
+      padding: 10px;
     }
   </style>
   <template>
@@ -21,14 +22,13 @@
       <div class="item">
         <post-card favorite="{{item.favorite}}" on-favorite-tap="handleFavorite"
           hidden$="{{computeHidden(show, item.favorite)}}">
-          <img src="{{item.avatar}}" width="200" height="200">
+          <img src="{{item.avatar}}" height="200">
           <h2>{{item.username}}</h2>
           <span>{{item.price}}</span>
           <p>{{item.text}}</p>
         </post-card>
       </div>
     </template>
-
 
   </template>
 

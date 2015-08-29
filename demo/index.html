@@ -12,7 +12,6 @@
   <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
   <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
   <link rel="import" href="post-list.html">
-  <link rel="import" href="../hello-word.html">
 
   <style type="text/css">
     body{
@@ -45,8 +44,7 @@
       background: #eee;
     }
     .container {
-      width: 80%;
-      margin: 50px auto;
+      margin: calc(5% - 10px) auto;
     }
     @media (min-width: 481px) {
       #tabs {
@@ -62,28 +60,28 @@
   <paper-header-panel class="flex">
     <paper-toolbar class="medium-tall">
       <paper-icon-button icon="menu"></paper-icon-button>
-      <span title>App Store</span>
+      <span title>WebApp Store</span>
+      <paper-icon-button icon="search"></paper-icon-button>
       <paper-icon-button icon="refresh"></paper-icon-button>
-      <paper-icon-button icon="add">+</paper-icon-button>
 
       <paper-tabs id="tabs" selected="0" class="bottom self-end" >
         <paper-tab>
           <iron-icon icon="store"><iron-icon>
         </paper-tab>
         <paper-tab>
-          <iron-icon icon="add-shopping-cart"><iron-icon>
+          <iron-icon icon="shopping-basket"><iron-icon>
         </paper-tab>
       </paper-tabs>
     </paper-toolbar>
 
-    <div class="container" layout vertical center>
+    <div class="container">
       <post-list show="0"></post-list>
     </div>
     <script>
       var tabs = document.querySelector('paper-tabs');
       var list = document.querySelector('post-list');
 
-      tabs.addEventListener('click', function() {
+      tabs.addEventListener('tap', function() {
         list.setAttribute('show', tabs.selected);
       });
     </script>
